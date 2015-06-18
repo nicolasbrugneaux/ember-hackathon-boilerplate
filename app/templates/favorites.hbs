@@ -1,0 +1,12 @@
+<ul>
+    {{#each model as |recipe|}}
+    <li>
+        {{recipe.name}} - rating: {{recipe.rating}} / 10
+        <ul>
+            {{#each recipe.ingredients as |ingredient|}}
+            <li><small>{{ingredient}}</small></li>
+            {{/each}}
+        </ul>
+    </li>
+    {{/each}}
+</ul>
