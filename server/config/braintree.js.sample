@@ -1,0 +1,9 @@
+import braintree from 'braintree';
+
+export default braintree.connect(
+{
+    environment:  braintree.Environment.Sandbox,
+    merchantId:   '',
+    publicKey:    '',
+    privateKey:   ''
+} );

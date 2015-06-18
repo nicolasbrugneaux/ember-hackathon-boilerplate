@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser';
 import { info as userInfo } from './user';
 import { info as clientInfo } from './client';
 import recipes from './recipe';
+import { braintreeToken, braintreePaymentMethod } from './third-party-apis';
 import { authorization, decision, token } from './oauth2';
 
 import './auth';
@@ -38,9 +39,14 @@ export default app =>
     app.post( '/dialog/authorize/decision', decision );
     app.post( '/oauth/token', token );
 
+    app.post( '/oauth/braintree/token', braintreeToken );
+    app.post( '/payment-methods/braintree', braintreePaymentMethod );
+
     app.get( '/api/userinfo', userInfo );
     app.get( '/api/clientinfo', clientInfo );
 
     app.get( '/api/recipes', recipes.findAll );
     app.get( '/api/recipes/:id', recipes.find );
+
+
 };

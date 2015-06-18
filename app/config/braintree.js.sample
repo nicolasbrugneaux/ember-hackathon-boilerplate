@@ -1,0 +1,3 @@
+import Braintree from 'npm:braintree-web';
+
+export default Braintree.create( '' );
