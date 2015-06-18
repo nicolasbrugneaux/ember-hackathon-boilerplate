@@ -6,6 +6,6 @@ export default Ember.Route.extend( AuthenticatedRouteMixin,
 {
     model()
     {
-        return $.get( '/recipes.json' );
+        return $.get( '/api/recipes' ).then( response => response.recipes );
     }
 } );

@@ -8,6 +8,7 @@ import cookieParser from 'cookie-parser';
 
 import { info as userInfo } from './user';
 import { info as clientInfo } from './client';
+import recipes from './recipe';
 import { authorization, decision, token } from './oauth2';
 
 import './auth';
@@ -39,4 +40,7 @@ export default app =>
 
     app.get( '/api/userinfo', userInfo );
     app.get( '/api/clientinfo', clientInfo );
+
+    app.get( '/api/recipes', recipes.findAll );
+    app.get( '/api/recipes/:id', recipes.find );
 };
